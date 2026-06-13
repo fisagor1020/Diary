@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="bn">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>🌸 Diary</title>
+
+<link rel="stylesheet" href="main.css">
+<link rel="manifest" href="manifest.json">
+
+<meta name="theme-color" content="#ff5d94">
+
+
+</head>
+
+<body>
+
+<!-- =========================
+     PIN LOCK
+========================= -->
+
+<section id="pinScreen">
+
+<div class="pin-box">
+
+<h1>🔒 Diary Lock</h1>
+
+<p>Enter your PIN</p>
+
+<input
+type="password"
+id="pinInput"
+maxlength="4"
+inputmode="numeric"
+pattern="[0-9]*"
+placeholder="1234">
+
+<button id="unlockBtn">
+Unlock
+</button>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     COVER PAGE
+========================= -->
+
+<section id="coverScreen">
+
+<div class="cover-content">
+
+<div class="flower">
+🌸
+</div>
+
+<h1>
+Diary
+</h1>
+
+<p>
+Write today,<br>
+remember forever.
+</p>
+
+<button id="startBtn">
+📖 Open My Diary
+</button>
+
+<div id="developerCover">
+
+Developer :
+<a
+href="https://www.facebook.com/Sagor1739"
+target="_blank">
+
+Sagor Ahmed
+
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     HOME SCREEN
+========================= -->
+
+<section id="homeScreen" style="display:none;">
+
+<header class="topbar">
+
+<h1>
+🌸 Diary
+</h1>
+
+<div class="top-actions">
+
+<button id="exportBtn">
+📤 Backup
+</button>
+
+<button id="importBtn">
+📥 Restore
+</button>
+<button id="themeBtn">
+🌙 Dark
+</button>
+<button id="cloudBtn">
+☁️ Cloud
+</button>
+<button id="passwordBtn">
+🔐 Password
+</button>
+
+</div>
+
+</header>
+
+<input
+type="text"
+id="searchInput"
+placeholder="🔍 Search diaries...">
+
+<p id="searchCount"></p>
+<div id="statsBox"></div>
+<div id="diaryList"></div>
+
+<div id="developerCredit">
+
+Developer :
+<a
+href="https://www.facebook.com/Sagor1739"
+target="_blank">
+
+Sagor Ahmed
+
+</a>
+
+</div>
+
+<button
+id="newDiaryBtn"
+class="fab">
++
+</button>
+
+</section>
+
+
+<!-- =========================
+     EDITOR SCREEN
+========================= -->
+
+<section id="editorScreen">
+
+<!-- =========================
+     FIXED ACTION BAR
+========================= -->
+
+<div class="fixedActionBar">
+
+<button id="backBtn">
+← Back
+</button>
+
+<div class="actionRight">
+
+<button id="toggleToolbarBtn">
+🎨 Tools
+</button>
+
+<button id="readBtn">
+📖 Read
+</button>
+<button id="favoriteBtn">
+⭐ Favorite
+</button>
+<button id="deleteBtn">
+🗑️ Delete
+</button>
+
+</div>
+
+</div>
+
+<!-- =========================
+     TOOLBAR
+========================= -->
+
+<div
+id="toolbar"
+class="toolbar">
+
+<button id="boldBtn">
+B
+</button>
+
+<button id="underlineBtn">
+U
+</button>
+
+<button id="yellowBtn">
+🟨
+</button>
+
+<button id="greenBtn">
+🟩
+</button>
+
+<button id="blueBtn">
+🟦
+</button>
+
+<button id="pinkBtn">
+🩷
+</button>
+
+<button id="redBtn">
+🔴
+</button>
+
+<button id="blueColorBtn">
+🔵
+</button>
+
+<button id="greenColorBtn">
+🟢
+</button>
+
+<button id="blackBtn">
+⚫
+</button>
+
+<button id="normalBtn">
+Normal
+</button>
+
+<button id="fontPlus">
+A+
+</button>
+
+<button id="fontMinus">
+A-
+</button>
+
+<button id="leftBtn">
+⬅️
+</button>
+
+<button id="centerBtn">
+↔️
+</button>
+
+<button id="rightBtn">
+➡️
+</button>
+
+</div>
+
+<!-- =========================
+     EDITOR BODY
+========================= -->
+
+<div class="editorWrapper">
+
+<div class="editorCard">
+
+<div class="row">
+
+<div>
+
+<label>
+📅 Date
+</label>
+
+<input
+type="date"
+id="date">
+
+</div>
+
+<div>
+
+<label>
+😊 Mood
+</label>
+
+<input
+type="text"
+id="mood"
+placeholder="Happy">
+
+</div>
+
+</div>
+
+<input
+type="text"
+id="title"
+class="titleInput"
+placeholder="📝 Title">
+
+<div class="editorArea">
+
+<div
+id="content"
+class="rich-editor"
+contenteditable="true">
+</div>
+</div>
+
+<div id="wordStats">
+
+Words: 0 |
+Chars(with space): 0 |
+Chars(no space): 0
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- =========================
+     READ MODE
+========================= -->
+<section id="readScreen">
+
+  <div id="bookPage"></div>
+
+</section>
+
+<!-- =========================
+     IMPORT FILE
+========================= -->
+
+<input
+type="file"
+id="importFile"
+accept=".json"
+hidden>
+
+
+<div id="whatsNewPopup" class="popup">
+  <div class="popup-box">
+
+    <h2>📢 What's New — v1.3</h2>
+
+    <p>✨ Added Features</p>
+
+    <ul>
+       <li>☁️ Cloud Backup & Restore</li>
+      <li>🔍 Read Mode Search</li>
+      <li>✍️ Word Count System</li>
+      <li>📖 Reading Time Counter</li>
+      <li>🕒 Last Edit Date & Time</li>
+      <li>📊 Reading Progress & Statistics</li>
+      <li>⭐ Favorite Diaries</li>
+      <li>🗑️ Trash Bin Recovery</li>
+      <li>🌙 Dark Mode</li>
+      <li>📤 Backup & Restore</li>
+      <li>📖 Premium Read Mode</li>
+    </ul>
+
+    <p style="margin-top:15px;">
+      💖 Thanks for using Open Diary!
+    </p>
+
+    <button id="closeWhatsNew">
+      OK
+    </button>
+
+  
+  </div>
+</div>
+
+<script src="https://unpkg.com/docx@8.5.0/build/index.umd.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/dompurify@3.2.6/dist/purify.min.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-auth-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.13.2/firebase-firestore-compat.js"></script>
+<script src="app.js"></script>
+
+</body>
+</html>
